@@ -5,32 +5,29 @@ import java.util.List;
 import java.util.Objects;
 import java.util.function.Predicate;
 
-public class StringSchema {
+public class StringSchema extends BaseSchema {
 
-    public List<Predicate<Object>> list = new ArrayList<>();
-
-    public final boolean isValid(Object data) {
-        if (data instanceof String || data == null) {
-            return list.stream().allMatch(check -> check.test(data));
-        }
-        return false;
+    public StringSchema() {
+        Predicate<Object> str = obj -> obj instanceof String || obj == null;
+        add(str);
     }
 
-    public StringSchema required() {
-        Predicate<Object> required = input -> Objects.nonNull(input) && !input.toString().isEmpty();
-        list.add(required);
+    @Override
+    public BaseSchema required() {
+        Predicate<Object> required = obj -> Objects.nonNull(obj) && !obj.toString().isEmpty();
+        add(required);
         return this;
     }
 
     public StringSchema minLength(int length) {
-        Predicate<Object> minLength = input -> input == null || input.toString().length() >= length;
-        list.add(minLength);
+        Predicate<Object> minLength = obj -> obj == null || obj.toString().length() >= length;
+        add(minLength);
         return this;
     }
 
     public StringSchema contains(String str) {
-        Predicate<Object> contains = input -> input.toString().contains(str);
-        list.add(contains);
+        Predicate<Object> contains = obj -> obj.toString().contains(str);
+        add(contains);
         return this;
     }
 }
