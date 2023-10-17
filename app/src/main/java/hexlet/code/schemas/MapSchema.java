@@ -23,7 +23,7 @@ public class MapSchema extends BaseSchema {
         return this;
     }
 
-    public MapSchema shape(Map<?, BaseSchema> map) {
+    public MapSchema shape(Map<String, BaseSchema> map) {
         Predicate<Object> shape = obj -> obj == null || map.keySet().stream().allMatch(key -> {
             Object value = ((Map<?, ?>) obj).get(key);
             return map.get(key).isValid(value);
