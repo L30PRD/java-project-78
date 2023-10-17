@@ -1,8 +1,5 @@
 package hexlet.code.schemas;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Objects;
 import java.util.function.Predicate;
 
 public class NumberSchema extends BaseSchema {
