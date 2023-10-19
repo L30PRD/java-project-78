@@ -13,12 +13,12 @@ import java.util.Map;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-public class AllTests {
-    StringSchema s;
-    NumberSchema n;
-    MapSchema m;
+public final class AllTests {
+    private StringSchema s;
+    private NumberSchema n;
+    private MapSchema m;
 
-    Validator v;
+    private Validator v;
 
     @BeforeEach
     public void prepare() {

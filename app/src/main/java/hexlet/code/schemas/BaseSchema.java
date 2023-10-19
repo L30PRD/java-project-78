@@ -3,8 +3,8 @@ package hexlet.code.schemas;
 import java.util.LinkedHashMap;
 import java.util.function.Predicate;
 
-public class BaseSchema {
-    boolean requiredFlag = false;
+public abstract class BaseSchema {
+    private boolean requiredFlag = false;
     LinkedHashMap<String, Predicate<Object>> map = new LinkedHashMap<>();;
 
     public final boolean isValid(Object obj) {
@@ -14,15 +14,15 @@ public class BaseSchema {
         return map.values().stream().allMatch(x -> x.test(obj));
     }
 
-    public void add(String type, Predicate<Object> obj) {
+    public final void add(String type, Predicate<Object> obj) {
         map.put(type, obj);
     }
 
-    public void changeFlag() {
+    public final void changeFlag() {
         this.requiredFlag = !this.requiredFlag;
     }
 
-    public boolean isRequiredFlag() {
+    public final boolean isRequiredFlag() {
         return requiredFlag;
     }
 }
