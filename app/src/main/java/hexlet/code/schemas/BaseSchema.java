@@ -5,7 +5,7 @@ import java.util.function.Predicate;
 
 public abstract class BaseSchema {
     private boolean requiredFlag = false;
-    LinkedHashMap<String, Predicate<Object>> map = new LinkedHashMap<>();;
+    private final LinkedHashMap<String, Predicate<Object>> map = new LinkedHashMap<>();;
 
     public final boolean isValid(Object obj) {
         if (map.get("required").toString().equals("false")) {
