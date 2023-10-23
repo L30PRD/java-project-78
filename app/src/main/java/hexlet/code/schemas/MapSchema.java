@@ -6,7 +6,7 @@ import java.util.Map;
 public final class MapSchema extends BaseSchema {
 
     public MapSchema() {
-        add("required", value ->  value instanceof Map<?, ?>);
+        add("required", value -> value instanceof Map<?, ?>);
 
     }
 

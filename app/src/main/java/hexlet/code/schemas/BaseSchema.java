@@ -9,12 +9,10 @@ public abstract class BaseSchema {
     private final LinkedHashMap<String, Predicate<Object>> map = new LinkedHashMap<>();;
 
     public final boolean isValid(Object obj) {
-        if (isRequiredFlag() && map.get("required").test(obj)) {
+        if (!isRequiredFlag() && map.get("required").test(obj) || Objects.isNull(map.get("required"))) {
             return true;
-        } else if(Objects.nonNull(map.get("required"))) {
-            return map.values().stream().allMatch(x -> x.test(obj));
         }
-        return false;
+        return map.values().stream().allMatch(x -> x.test(obj));
     }
 
     public final void add(String type, Predicate<Object> obj) {
