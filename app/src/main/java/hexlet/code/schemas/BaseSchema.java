@@ -1,7 +1,6 @@
 package hexlet.code.schemas;
 
 import java.util.LinkedHashMap;
-import java.util.Objects;
 import java.util.function.Predicate;
 
 public abstract class BaseSchema {
@@ -9,8 +8,10 @@ public abstract class BaseSchema {
     private final LinkedHashMap<String, Predicate<Object>> map = new LinkedHashMap<>();;
 
     public final boolean isValid(Object obj) {
-        if (!isRequiredFlag() && map.get("required").test(obj) || Objects.isNull(map.get("required"))) {
-            return true;
+        if (!isRequiredFlag()) {
+            if (!map.get("required").test(obj)) {
+                return true;
+            }
         }
         return map.values().stream().allMatch(x -> x.test(obj));
     }
