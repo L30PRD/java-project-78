@@ -3,12 +3,7 @@ package hexlet.code.schemas;
 public final class StringSchema extends BaseSchema {
 
     public StringSchema() {
-        add("required", value -> {
-            if (isRequiredFlag()) {
-                return value instanceof String && !value.toString().isEmpty();
-            }
-            return true;
-        });
+        add("required", value -> value instanceof String && !value.toString().isEmpty());
     }
 
     public StringSchema required() {

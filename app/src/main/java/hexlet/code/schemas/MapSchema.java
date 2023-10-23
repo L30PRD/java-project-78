@@ -6,12 +6,7 @@ import java.util.Map;
 public final class MapSchema extends BaseSchema {
 
     public MapSchema() {
-        add("required", value -> {
-            if (isRequiredFlag()) {
-                return value instanceof Map<?, ?>;
-            }
-            return true;
-        });
+        add("required", value ->  value instanceof Map<?, ?>);
 
     }
 
