@@ -2,7 +2,7 @@
 [![Actions Status](https://github.com/L30PRD/java-project-78/actions/workflows/hexlet-check.yml/badge.svg)](https://github.com/L30PRD/java-project-78/actions)
 ### Codeclimate Maintainability
 [![Maintainability](https://api.codeclimate.com/v1/badges/3057497d54d5c9287009/maintainability)](https://codeclimate.com/github/L30PRD/java-project-78/maintainability)
-###Test Coverage
+### Test Coverage
 [![Test Coverage](https://api.codeclimate.com/v1/badges/3057497d54d5c9287009/test_coverage)](https://codeclimate.com/github/L30PRD/java-project-78/test_coverage)
 
 ### Валидатор данных.
